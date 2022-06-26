@@ -7,13 +7,18 @@ import time
 window = display.set_mode((960, 600))
 pygame.display.set_caption("Tax evasion")
 
+
 FPS = 1
 
 room = pygame.image.load("room.png")
 
-mixer.init()
-mixer.music.load("police.wav")
-mixer.music.play()
+font.init()
+font = font.Font(None, 70)
+win = font.render("You evaded taxes successfully", True, (0, 215, 0))
+
+# mixer.init()
+# mixer.music.load("police.wav")
+# mixer.music.play()
 
 def main():
     clock = pygame.time.Clock()
@@ -26,12 +31,10 @@ def main():
             if event.type == pygame.QUIT:
                 game = False
         window.blit(room, (0, 0))
-        pygame.display.update()
+        window.blit(win, (10, 10))
 
-        whatappears = randint(1, 30)
-        if whatappears == 1:
-            mixer.music.load("steps.wav")
-            mixer.music.play(1)
+
+        pygame.display.update()
 
     pygame.quit()
 
