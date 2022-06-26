@@ -3,12 +3,13 @@ from pygame import *
 from random import randint
 from pygame import mixer
 import time
+game = True
 
 window = display.set_mode((960, 600))
 pygame.display.set_caption("Tax evasion")
 
 
-FPS = 1
+FPS = 60
 
 room = pygame.image.load("room.png")
 
@@ -20,7 +21,7 @@ win = font.render("You evaded taxes successfully", True, (0, 215, 0))
 # mixer.music.load("police.wav")
 # mixer.music.play()
 
-def main():
+while game:
     clock = pygame.time.Clock()
     game = True
     stillgoing = True
@@ -31,7 +32,9 @@ def main():
             if event.type == pygame.QUIT:
                 game = False
         window.blit(room, (0, 0))
-        window.blit(win, (10, 10))
+
+
+
 
 
         pygame.display.update()
@@ -39,5 +42,3 @@ def main():
     pygame.quit()
 
 
-if __name__ == "__main__":
-    main()
