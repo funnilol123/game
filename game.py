@@ -20,23 +20,44 @@ win = font.render("You evaded taxes successfully", True, (0, 215, 0))
 # mixer.init()
 # mixer.music.load("police.wav")
 # mixer.music.play()
+clock = pygame.time.Clock()
+
+current_time = 0
+animhappened_time = 0
+lose = 0
 
 while game:
-    clock = pygame.time.Clock()
     game = True
     stillgoing = True
     whatappears = 0
     while game:
-        clock.tick(FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game = False
+
         window.blit(room, (0, 0))
 
+        current_time = current_time + 17
+        print(current_time)
 
+        if current_time > 10000 and lose == 0:
+            current_time = 0
+            lose = 1
+            while current_time < 10000:
+                current_time = current_time + 17
+                print("dog")
+                print(current_time)
+                if key.get_pressed()[K_DOWN]:
+                    print("Done")
+                    lose = 0
+                window.blit(room, (0, 0))
+                clock.tick(FPS)
+                pygame.display.update()
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        game = False
 
-
-
+        clock.tick(FPS)
         pygame.display.update()
 
     pygame.quit()
