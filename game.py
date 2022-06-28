@@ -19,6 +19,8 @@ behindoor = pygame.image.load("roombehindoor.png")
 doorblock = pygame.image.load("roomdoorblock.png")
 windowblock = pygame.image.load("roomwinblock.png")
 ventblock = pygame.image.load("roomventblock.png")
+behindwindow = pygame.image.load("behindwindow.png")
+behinddoor = pygame.image.load("behinddoor.png")
 
 font.init()
 font = font.Font(None, 70)
@@ -52,7 +54,7 @@ while game:
 
 
         if current_time > 10000 and lose == 0:
-            whatappears = randint(1, 3)
+            whatappears = randint(2, 2)
             current_time = 0
             lose = 1
             if whatappears == 1:
@@ -103,7 +105,7 @@ while game:
                         mixer.music.load("cact.wav")
                         mixer.music.play()
 
-                    window.blit(room, (0, 0))
+                    window.blit(behinddoor, (0, 0))
                     clock.tick(FPS)
                     pygame.display.update()
                     for event in pygame.event.get():
@@ -117,7 +119,6 @@ while game:
                     current_time = current_time + 17
                     print("dog2")
                     print(current_time)
-
                     if key.get_pressed()[K_j]:
                         current_time = 0
                         while current_time < 1000:
@@ -158,7 +159,7 @@ while game:
                         mixer.music.play()
 
 
-                    window.blit(room, (0, 0))
+                    window.blit(behindwindow, (0, 0))
                     clock.tick(FPS)
                     pygame.display.update()
                     for event in pygame.event.get():
