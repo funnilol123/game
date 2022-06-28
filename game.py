@@ -135,19 +135,15 @@ while game:
                             if current_time > 10000:
                                 lose = 0
                                 overalllost = overalllost + 1
-                        else:
-                            game = False
-                else:
-                    game = False
 
-                    print("lost2end")
-                    print(current_time)
-                    window.blit(room, (0, 0))
-                    clock.tick(FPS)
-                    pygame.display.update()
-                    for event in pygame.event.get():
-                        if event.type == pygame.QUIT:
-                            game = False
+                        print("lost2end")
+                        print(current_time)
+                        window.blit(room, (0, 0))
+                        clock.tick(FPS)
+                        pygame.display.update()
+                        for event in pygame.event.get():
+                            if event.type == pygame.QUIT:
+                                game = False
 
 
 
