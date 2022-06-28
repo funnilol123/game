@@ -53,8 +53,8 @@ while game:
         print(current_time)
 
 
-        if current_time > 10000 and lose == 0:
-            whatappears = randint(2, 2)
+        if current_time > 6000 and lose == 0:
+            whatappears = randint(1, 3)
             current_time = 0
             lose = 1
             if whatappears == 1:
@@ -221,7 +221,7 @@ while game:
                         if event.type == pygame.QUIT:
                             game = False
 
-            if current_time > 10000 and lose == 1 or pressed == 0:
+            if current_time > 6000 and lose == 1 or pressed == 0:
                 if overalllost >= 3:
                     game = False
 
