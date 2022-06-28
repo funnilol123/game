@@ -24,9 +24,9 @@ font.init()
 font = font.Font(None, 70)
 win = font.render("You evaded taxes successfully", True, (0, 215, 0))
 
-# mixer.init()
-# mixer.music.load("police.wav")
-# mixer.music.play()
+mixer.init()
+mixer.music.load("cact.wav")
+mixer.music.play()
 clock = pygame.time.Clock()
 
 current_time = 0
@@ -44,7 +44,6 @@ while game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game = False
-
         window.blit(room, (0, 0))
 
         current_time = current_time + 17
@@ -77,7 +76,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
                     if key.get_pressed()[K_k]:
                         current_time = 0
                         mixer.init()
@@ -91,7 +92,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
                     if key.get_pressed()[K_j]:
                         current_time = 0
                         mixer.init()
@@ -105,7 +108,9 @@ while game:
                         print("Done")
                         lose = 0
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
 
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
@@ -135,7 +140,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
                     if key.get_pressed()[K_l]:
                         current_time = 0
                         mixer.init()
@@ -149,7 +156,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
                     if key.get_pressed()[K_k]:
                         current_time = 0
                         mixer.init()
@@ -163,7 +172,9 @@ while game:
                         print("Done")
                         lose = 0
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
 
 
                     window.blit(room, (0, 0))
@@ -194,7 +205,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
 
                     if key.get_pressed()[K_k]:
                         current_time = 0
@@ -209,7 +222,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
                     if key.get_pressed()[K_l]:
                         current_time = 0
                         mixer.init()
@@ -223,7 +238,9 @@ while game:
                         print("Done")
                         lose = 0
                         pressed = 1
-
+                        mixer.init()
+                        mixer.music.load("cact.wav")
+                        mixer.music.play()
 
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
@@ -279,6 +296,7 @@ while game:
 
 
             pressed = 0
+
         clock.tick(FPS)
         pygame.display.update()
 
