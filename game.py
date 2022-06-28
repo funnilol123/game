@@ -27,7 +27,7 @@ jumpscare = pygame.image.load("jumpscare.png")
 fake = pygame.image.load("fakemirror.png")
 
 font.init()
-font = font.Font(None, 70)
+font = font.Font(None, 30)
 
 
 
@@ -42,9 +42,7 @@ lose = 0
 overalllost = 0
 pressed = 0
 success = 0
-hpp = 3
-
-
+am = 0
 
 while game:
     game = True
@@ -532,10 +530,27 @@ while game:
 
 
             pressed = 0
+
+        am = am + 17
+        trueam = am/1000
         clock.tick(FPS)
-        hp = font.render("Room used: " + str(overalllost), True, (0, 215, 0))
+        hp = font.render("Room used: " + str(overalllost), True, (255, 255, 255))
+        win = font.render("Victory! " + str(overalllost), True, (0, 255, 0))
         window.blit(hp, (0, 0))
+        AM = font.render("Time: " + str(trueam), True, (255, 255, 255))
+        window.blit(AM, (800, 0))
+        if trueam >= 10:
+            window.blit(win, (0, 0))
+            pygame.display.update()
+            current_time = 0
+            while current_time < 10000:
+                window.blit(win, (0, 0))
+                pygame.display.update()
+                current_time = 0
+            stillgoing = False
+
         pygame.display.update()
+
 
     pygame.quit()
 
