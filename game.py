@@ -23,6 +23,7 @@ behindwindow = pygame.image.load("behindwindow.png")
 behinddoor = pygame.image.load("behinddoor.png")
 behinddoor2 = pygame.image.load("behinddoor21.png")
 behinddoorx = pygame.image.load("behinddoorwihtoutcact.png")
+jumpscare = pygame.image.load("jumpscare.png")
 
 font.init()
 font = font.Font(None, 70)
@@ -54,7 +55,6 @@ while game:
         current_time = current_time + 17
         print(current_time)
 
-
         if current_time > 6000 and lose == 0:
             whatappears = randint(1, 3)
             current_time = 0
@@ -76,6 +76,15 @@ while game:
                             clock.tick(FPS)
                             pygame.display.update()
                         print("Done")
+                        mixer.init()
+                        mixer.music.load("jumpscare.wav")
+                        mixer.music.play()
+                        current_time = 0
+                        while current_time < 3000:
+                            current_time = current_time + 17
+                            window.blit(jumpscare, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
                         game = False
                         pressed = 1
 
@@ -87,6 +96,15 @@ while game:
                             clock.tick(FPS)
                             pygame.display.update()
                         print("Done")
+                        mixer.init()
+                        mixer.music.load("jumpscare.wav")
+                        mixer.music.play()
+                        current_time = 0
+                        while current_time < 3000:
+                            current_time = current_time + 17
+                            window.blit(jumpscare, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
                         game = False
                         pressed = 1
 
@@ -129,6 +147,15 @@ while game:
                             clock.tick(FPS)
                             pygame.display.update()
                         print("Done")
+                        mixer.init()
+                        mixer.music.load("jumpscare.wav")
+                        mixer.music.play()
+                        current_time = 0
+                        while current_time < 3000:
+                            current_time = current_time + 17
+                            window.blit(jumpscare, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
                         game = False
                         pressed = 1
 
@@ -140,6 +167,15 @@ while game:
                             clock.tick(FPS)
                             pygame.display.update()
                         print("Done")
+                        mixer.init()
+                        mixer.music.load("jumpscare.wav")
+                        mixer.music.play()
+                        current_time = 0
+                        while current_time < 3000:
+                            current_time = current_time + 17
+                            window.blit(jumpscare, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
                         game = False
                         pressed = 1
 
@@ -184,6 +220,15 @@ while game:
                             clock.tick(FPS)
                             pygame.display.update()
                         print("Done")
+                        mixer.init()
+                        mixer.music.load("jumpscare.wav")
+                        mixer.music.play()
+                        current_time = 0
+                        while current_time < 3000:
+                            current_time = current_time + 17
+                            window.blit(jumpscare, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
                         game = False
                         pressed = 1
 
@@ -196,7 +241,16 @@ while game:
                             clock.tick(FPS)
                             pygame.display.update()
                         print("Done")
-                        game = False
+                        mixer.init()
+                        mixer.music.load("jumpscare.wav")
+                        mixer.music.play()
+                        current_time = 0
+                        while current_time < 3000:
+                            current_time = current_time + 17
+                            window.blit(jumpscare, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                            game = False
                         pressed = 1
 
                     if key.get_pressed()[K_l]:
@@ -225,8 +279,16 @@ while game:
 
             if current_time > 6000 and lose == 1 or pressed == 0:
                 if overalllost >= 3:
-                    game = False
-
+                    mixer.init()
+                    mixer.music.load("jumpscare.wav")
+                    mixer.music.play()
+                    current_time = 0
+                    while current_time < 3000:
+                        current_time = current_time + 17
+                        window.blit(jumpscare, (0, 0))
+                        clock.tick(FPS)
+                        pygame.display.update()
+                        game = False
                 if overalllost < 3:
                     current_time = 0
                     print("lost1")
