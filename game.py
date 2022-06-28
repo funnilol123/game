@@ -44,6 +44,7 @@ while game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game = False
+
         window.blit(room, (0, 0))
 
         current_time = current_time + 17
@@ -51,23 +52,20 @@ while game:
 
 
         if current_time > 10000 and lose == 0:
-            whatappears = randint(1, 3)
+            whatappears = randint(2, 2)
             current_time = 0
             lose = 1
             if whatappears == 1:
                 mixer.init()
                 mixer.music.load("steps.wav")
                 mixer.music.play()
-                while current_time < 10000 and pressed == 0:
+                while current_time < 2000 and pressed == 0:
                     current_time = current_time + 17
                     print("dog")
                     print(current_time)
 
                     if key.get_pressed()[K_l]:
                         current_time = 0
-                        mixer.init()
-                        mixer.music.load("hammer.wav")
-                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(ventblock, (0, 0))
@@ -76,14 +74,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-                        mixer.init()
-                        mixer.music.load("cact.wav")
-                        mixer.music.play()
+
                     if key.get_pressed()[K_k]:
                         current_time = 0
-                        mixer.init()
-                        mixer.music.load("curtains.wav")
-                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(windowblock, (0, 0))
@@ -92,14 +85,12 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-                        mixer.init()
-                        mixer.music.load("cact.wav")
-                        mixer.music.play()
+
                     if key.get_pressed()[K_j]:
-                        current_time = 0
                         mixer.init()
                         mixer.music.load("hammer.wav")
                         mixer.music.play()
+                        current_time = 0
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(doorblock, (0, 0))
@@ -122,16 +113,13 @@ while game:
                 mixer.init()
                 mixer.music.load("Helicopter.wav")
                 mixer.music.play()
-                while current_time < 10000 and pressed == 0:
+                while current_time < 2000 and pressed == 0:
                     current_time = current_time + 17
                     print("dog2")
                     print(current_time)
 
                     if key.get_pressed()[K_j]:
                         current_time = 0
-                        mixer.init()
-                        mixer.music.load("hammer.wav")
-                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(doorblock, (0, 0))
@@ -140,14 +128,9 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-                        mixer.init()
-                        mixer.music.load("cact.wav")
-                        mixer.music.play()
+
                     if key.get_pressed()[K_l]:
                         current_time = 0
-                        mixer.init()
-                        mixer.music.load("hammer.wav")
-                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(ventblock, (0, 0))
@@ -156,14 +139,12 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-                        mixer.init()
-                        mixer.music.load("cact.wav")
-                        mixer.music.play()
+
                     if key.get_pressed()[K_k]:
-                        current_time = 0
                         mixer.init()
                         mixer.music.load("curtains.wav")
                         mixer.music.play()
+                        current_time = 0
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(windowblock, (0, 0))
@@ -187,15 +168,12 @@ while game:
                 mixer.init()
                 mixer.music.load("vent.wav")
                 mixer.music.play()
-                while current_time < 10000 and pressed == 0:
+                while current_time < 2000 and pressed == 0:
                     current_time = current_time + 17
                     print("dog3")
                     print(current_time)
 
                     if key.get_pressed()[K_j]:
-                        mixer.init()
-                        mixer.music.load("hammer.wav")
-                        mixer.music.play()
                         current_time = 0
                         while current_time < 1000:
                             current_time = current_time + 17
@@ -205,15 +183,10 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-                        mixer.init()
-                        mixer.music.load("cact.wav")
-                        mixer.music.play()
+
 
                     if key.get_pressed()[K_k]:
                         current_time = 0
-                        mixer.init()
-                        mixer.music.load("curtains.wav")
-                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(windowblock, (0, 0))
@@ -222,14 +195,12 @@ while game:
                         print("Done")
                         game = False
                         pressed = 1
-                        mixer.init()
-                        mixer.music.load("cact.wav")
-                        mixer.music.play()
+
                     if key.get_pressed()[K_l]:
-                        current_time = 0
                         mixer.init()
-                        mixer.music.load("hammer.wav")
+                        mixer.music.load("vent.wav")
                         mixer.music.play()
+                        current_time = 0
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(ventblock, (0, 0))
@@ -249,7 +220,7 @@ while game:
                         if event.type == pygame.QUIT:
                             game = False
 
-            if current_time > 10000 and lose == 1:
+            if current_time > 10000 and lose == 1 or pressed == 0:
                 if overalllost >= 3:
                     game = False
 
@@ -260,6 +231,9 @@ while game:
                         print("lost2")
                         current_time = current_time + 17
                         if key.get_pressed()[K_f]:
+                            mixer.init()
+                            mixer.music.load("breathing.wav")
+                            mixer.music.play()
                             print("lost3")
                             current_time = 0
                             while current_time < 500:
@@ -272,15 +246,20 @@ while game:
                                 window.blit(dooranim2, (0, 0))
                                 clock.tick(FPS)
                                 pygame.display.update()
-                            while current_time < 10000:
+                            while current_time < 5000:
                                 current_time = current_time + 17
                                 window.blit(behindoor, (0, 0))
                                 clock.tick(FPS)
                                 pygame.display.update()
-                            if current_time > 10000:
+                            if current_time > 5000:
                                 lose = 0
                                 overalllost = overalllost + 1
                                 success = 1
+                                mixer.init()
+                                mixer.music.load("cact.wav")
+                                mixer.music.play()
+                                whatappears = 0
+                                current_time = 0
 
                         print("lost2end")
                         print(current_time)
@@ -296,7 +275,6 @@ while game:
 
 
             pressed = 0
-
         clock.tick(FPS)
         pygame.display.update()
 
