@@ -6,7 +6,7 @@ import time
 game = True
 
 window = display.set_mode((960, 600))
-pygame.display.set_caption("Tax evasion")
+pygame.display.set_caption("Bobby's new friend")
 
 
 FPS = 60
@@ -28,7 +28,8 @@ fake = pygame.image.load("fakemirror.png")
 
 font.init()
 font = font.Font(None, 70)
-win = font.render("You evaded taxes successfully", True, (0, 215, 0))
+
+
 
 mixer.init()
 mixer.music.load("cact.wav")
@@ -41,6 +42,9 @@ lose = 0
 overalllost = 0
 pressed = 0
 success = 0
+hpp = 3
+
+
 
 while game:
     game = True
@@ -57,7 +61,7 @@ while game:
         print(current_time)
 
         if current_time > 6000 and lose == 0:
-            whatappears = randint(1, 6)
+            whatappears = randint(1, 5)
             current_time = 0
             lose = 1
             if whatappears == 1:
@@ -462,7 +466,7 @@ while game:
                     while current_time < 5000:
                         print("lost2")
                         current_time = current_time + 17
-                        if key.get_pressed()[K_f]:
+                        if key.get_pressed()[K_r]:
                             mixer.init()
                             mixer.music.load("breathing.wav")
                             mixer.music.play()
@@ -529,6 +533,8 @@ while game:
 
             pressed = 0
         clock.tick(FPS)
+        hp = font.render("Room used: " + str(overalllost), True, (0, 215, 0))
+        window.blit(hp, (0, 0))
         pygame.display.update()
 
     pygame.quit()
