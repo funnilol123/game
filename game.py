@@ -16,6 +16,9 @@ room = pygame.image.load("room.png")
 dooranim1 = pygame.image.load("dooropen1.png")
 dooranim2 = pygame.image.load("dooropen2.png")
 behindoor = pygame.image.load("roombehindoor.png")
+doorblock = pygame.image.load("roomdoorblock.png")
+windowblock = pygame.image.load("roomwinblock.png")
+ventblock = pygame.image.load("roomventblock.png")
 
 font.init()
 font = font.Font(None, 70)
@@ -31,7 +34,7 @@ animhappened_time = 0
 lose = 0
 overalllost = 0
 pressed = 0
-
+success = 0
 
 while game:
     game = True
@@ -49,7 +52,7 @@ while game:
 
 
         if current_time > 10000 and lose == 0:
-            whatappears = randint(1, 1)
+            whatappears = randint(1, 3)
             current_time = 0
             lose = 1
             if whatappears == 1:
@@ -60,10 +63,41 @@ while game:
                     current_time = current_time + 17
                     print("dog")
                     print(current_time)
+
+                    if key.get_pressed()[K_l]:
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(ventblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                            print("Done")
+                            game = False
+                            pressed = 1
+
+                    if key.get_pressed()[K_k]:
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(windowblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                        print("Done")
+                        game = False
+                        pressed = 1
+
                     if key.get_pressed()[K_j]:
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(doorblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
                         print("Done")
                         lose = 0
                         pressed = 1
+
+
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
                     pygame.display.update()
@@ -78,10 +112,42 @@ while game:
                     current_time = current_time + 17
                     print("dog2")
                     print(current_time)
+
+                    if key.get_pressed()[K_j]:
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(doorblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                        print("Done")
+                        game = False
+                        pressed = 1
+
+                    if key.get_pressed()[K_l]:
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(ventblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                        print("Done")
+                        game = False
+                        pressed = 1
+
                     if key.get_pressed()[K_k]:
-                        print("Done2")
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(windowblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                        print("Done")
                         lose = 0
                         pressed = 1
+
+
+
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
                     pygame.display.update()
@@ -96,10 +162,42 @@ while game:
                     current_time = current_time + 17
                     print("dog3")
                     print(current_time)
+
+                    if key.get_pressed()[K_j]:
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(doorblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                        print("Done")
+                        game = False
+                        pressed = 1
+
+
+                    if key.get_pressed()[K_k]:
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(windowblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                        print("Done")
+                        game = False
+                        pressed = 1
+
                     if key.get_pressed()[K_l]:
-                        print("Done3")
+                        current_time = 0
+                        while current_time < 1000:
+                            current_time = current_time + 17
+                            window.blit(ventblock, (0, 0))
+                            clock.tick(FPS)
+                            pygame.display.update()
+                        print("Done")
                         lose = 0
                         pressed = 1
+
+
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
                     pygame.display.update()
@@ -108,6 +206,9 @@ while game:
                             game = False
 
             if current_time > 10000 and lose == 1:
+                if overalllost >= 3:
+                    game = False
+
                 if overalllost < 3:
                     current_time = 0
                     print("lost1")
@@ -135,6 +236,7 @@ while game:
                             if current_time > 10000:
                                 lose = 0
                                 overalllost = overalllost + 1
+                                success = 1
 
                         print("lost2end")
                         print(current_time)
@@ -145,6 +247,8 @@ while game:
                             if event.type == pygame.QUIT:
                                 game = False
 
+                    if success == 0:
+                        game = False
 
 
             pressed = 0
