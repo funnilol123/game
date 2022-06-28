@@ -66,17 +66,23 @@ while game:
 
                     if key.get_pressed()[K_l]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("hammer.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(ventblock, (0, 0))
                             clock.tick(FPS)
                             pygame.display.update()
-                            print("Done")
-                            game = False
-                            pressed = 1
+                        print("Done")
+                        game = False
+                        pressed = 1
 
                     if key.get_pressed()[K_k]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("curtains.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(windowblock, (0, 0))
@@ -88,6 +94,9 @@ while game:
 
                     if key.get_pressed()[K_j]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("hammer.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(doorblock, (0, 0))
@@ -115,6 +124,9 @@ while game:
 
                     if key.get_pressed()[K_j]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("hammer.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(doorblock, (0, 0))
@@ -126,6 +138,9 @@ while game:
 
                     if key.get_pressed()[K_l]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("hammer.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(ventblock, (0, 0))
@@ -137,6 +152,9 @@ while game:
 
                     if key.get_pressed()[K_k]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("curtains.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(windowblock, (0, 0))
@@ -164,6 +182,9 @@ while game:
                     print(current_time)
 
                     if key.get_pressed()[K_j]:
+                        mixer.init()
+                        mixer.music.load("hammer.wav")
+                        mixer.music.play()
                         current_time = 0
                         while current_time < 1000:
                             current_time = current_time + 17
@@ -177,6 +198,9 @@ while game:
 
                     if key.get_pressed()[K_k]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("curtains.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(windowblock, (0, 0))
@@ -188,6 +212,9 @@ while game:
 
                     if key.get_pressed()[K_l]:
                         current_time = 0
+                        mixer.init()
+                        mixer.music.load("hammer.wav")
+                        mixer.music.play()
                         while current_time < 1000:
                             current_time = current_time + 17
                             window.blit(ventblock, (0, 0))
