@@ -52,7 +52,7 @@ while game:
 
 
         if current_time > 10000 and lose == 0:
-            whatappears = randint(2, 2)
+            whatappears = randint(1, 3)
             current_time = 0
             lose = 1
             if whatappears == 1:
@@ -111,7 +111,7 @@ while game:
                             game = False
             if whatappears == 2:
                 mixer.init()
-                mixer.music.load("Helicopter.wav")
+                mixer.music.load("tap.wav")
                 mixer.music.play()
                 while current_time < 2000 and pressed == 0:
                     current_time = current_time + 17
@@ -260,6 +260,7 @@ while game:
                                 mixer.music.play()
                                 whatappears = 0
                                 current_time = 0
+                                print("dogawter")
 
                         print("lost2end")
                         print(current_time)
