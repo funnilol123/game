@@ -21,6 +21,8 @@ windowblock = pygame.image.load("roomwinblock.png")
 ventblock = pygame.image.load("roomventblock.png")
 behindwindow = pygame.image.load("behindwindow.png")
 behinddoor = pygame.image.load("behinddoor.png")
+behinddoor2 = pygame.image.load("behinddoor21.png")
+behinddoorx = pygame.image.load("behinddoorwihtoutcact.png")
 
 font.init()
 font = font.Font(None, 70)
@@ -247,9 +249,19 @@ while game:
                                 window.blit(dooranim2, (0, 0))
                                 clock.tick(FPS)
                                 pygame.display.update()
-                            while current_time < 5000:
+                            while current_time < 4000:
                                 current_time = current_time + 17
                                 window.blit(behindoor, (0, 0))
+                                clock.tick(FPS)
+                                pygame.display.update()
+                            while current_time < 4500:
+                                current_time = current_time + 17
+                                window.blit(behinddoor2, (0, 0))
+                                clock.tick(FPS)
+                                pygame.display.update()
+                            while current_time < 5000:
+                                current_time = current_time + 17
+                                window.blit(behinddoorx, (0, 0))
                                 clock.tick(FPS)
                                 pygame.display.update()
                             if current_time > 5000:
