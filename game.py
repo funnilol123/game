@@ -198,7 +198,7 @@ while game:
 
                     if key.get_pressed()[K_l]:
                         mixer.init()
-                        mixer.music.load("vent.wav")
+                        mixer.music.load("hammer.wav")
                         mixer.music.play()
                         current_time = 0
                         while current_time < 1000:
