@@ -13,6 +13,10 @@ FPS = 60
 
 room = pygame.image.load("room.png")
 
+dooranim1 = pygame.image.load("dooropen1.png")
+dooranim2 = pygame.image.load("dooropen2.png")
+behindoor = pygame.image.load("roombehindoor.png")
+
 font.init()
 font = font.Font(None, 70)
 win = font.render("You evaded taxes successfully", True, (0, 215, 0))
@@ -24,17 +28,10 @@ clock = pygame.time.Clock()
 
 current_time = 0
 animhappened_time = 0
-loses = 0
-loseh = 0
-losev = 0
+lose = 0
+overalllost = 0
 pressed = 0
-closet = 0
-bed = 0
-underdesk = 0
-lookingleft = 0
-lookingback = 0
-lookingright = 0
-belowbedtime = 0
+
 
 while game:
     game = True
@@ -51,11 +48,11 @@ while game:
         print(current_time)
 
 
-        if current_time > 10000 and loses == 0 and loseh == 0 and losev == 0:
-            whatappears = randint(1, 3)
+        if current_time > 10000 and lose == 0:
+            whatappears = randint(1, 1)
             current_time = 0
+            lose = 1
             if whatappears == 1:
-                loses = 1
                 mixer.init()
                 mixer.music.load("steps.wav")
                 mixer.music.play()
@@ -65,7 +62,7 @@ while game:
                     print(current_time)
                     if key.get_pressed()[K_j]:
                         print("Done")
-                        loses = 0
+                        lose = 0
                         pressed = 1
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
@@ -74,7 +71,6 @@ while game:
                         if event.type == pygame.QUIT:
                             game = False
             if whatappears == 2:
-                loseh = 1
                 mixer.init()
                 mixer.music.load("Helicopter.wav")
                 mixer.music.play()
@@ -84,7 +80,7 @@ while game:
                     print(current_time)
                     if key.get_pressed()[K_k]:
                         print("Done2")
-                        loseh = 0
+                        lose = 0
                         pressed = 1
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
@@ -93,7 +89,6 @@ while game:
                         if event.type == pygame.QUIT:
                             game = False
             if whatappears == 3:
-                losev = 1
                 mixer.init()
                 mixer.music.load("vent.wav")
                 mixer.music.play()
@@ -103,7 +98,7 @@ while game:
                     print(current_time)
                     if key.get_pressed()[K_l]:
                         print("Done3")
-                        losev = 0
+                        lose = 0
                         pressed = 1
                     window.blit(room, (0, 0))
                     clock.tick(FPS)
@@ -112,14 +107,49 @@ while game:
                         if event.type == pygame.QUIT:
                             game = False
 
-            if current_time > 10000 and loses == 1:
-                game = False
+            if current_time > 10000 and lose == 1:
+                if overalllost < 3:
+                    current_time = 0
+                    print("lost1")
+                    while current_time < 5000:
+                        print("lost2")
+                        current_time = current_time + 17
+                        if key.get_pressed()[K_f]:
+                            print("lost3")
+                            current_time = 0
+                            while current_time < 500:
+                                current_time = current_time + 17
+                                window.blit(dooranim1, (0, 0))
+                                clock.tick(FPS)
+                                pygame.display.update()
+                            while current_time < 1000:
+                                current_time = current_time + 17
+                                window.blit(dooranim2, (0, 0))
+                                clock.tick(FPS)
+                                pygame.display.update()
+                            while current_time < 10000:
+                                current_time = current_time + 17
+                                window.blit(behindoor, (0, 0))
+                                clock.tick(FPS)
+                                pygame.display.update()
+                            if current_time > 10000:
+                                lose = 0
+                                overalllost = overalllost + 1
+                        else:
+                            game = False
+                else:
+                    game = False
 
-            if current_time > 10000 and losev == 1:
-                game = False
+                    print("lost2end")
+                    print(current_time)
+                    window.blit(room, (0, 0))
+                    clock.tick(FPS)
+                    pygame.display.update()
+                    for event in pygame.event.get():
+                        if event.type == pygame.QUIT:
+                            game = False
 
-            if current_time > 10000 and loseh == 1:
-                game = False
+
 
             pressed = 0
         clock.tick(FPS)
